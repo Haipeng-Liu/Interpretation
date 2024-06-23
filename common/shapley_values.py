@@ -75,10 +75,10 @@ class ShapleyValues:
         )
         return input, sample_mask, initial_pos[indices], output
 
-    def run(self, dataset_path, scene_index, get_data):
+    def run(self, dataset_path, scene_index):
         results = {}
         with torch.no_grad():
-            trajectories, initial_positions, masks = self.tester.load_data(dataset_path, get_data)
+            trajectories, initial_positions, masks = self.tester.load_data(dataset_path)
             batch_trajectory, batch_initial_pos, batch_mask = self.get_scene(
                 trajectories, initial_positions, masks, scene_index
             )
